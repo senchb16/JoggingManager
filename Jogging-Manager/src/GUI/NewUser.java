@@ -5,11 +5,28 @@
  */
 package GUI;
 
+import BL.User;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Christoph
  */
 public class NewUser extends javax.swing.JDialog {
+
+    private User user = null;
+    private boolean ok = false;
+
+    public User getUser() {
+        return user;
+    }
+
+    public boolean isOk() {
+        return ok;
+    }
 
     /**
      * Creates new form NewUser
@@ -28,28 +45,27 @@ public class NewUser extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btAdd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        tfFirstname = new javax.swing.JTextField();
+        tfLastname = new javax.swing.JTextField();
+        tfBirthday = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tfUsername = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btClose = new javax.swing.JButton();
+        spWeight = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jButton1.setText("add User");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btAdd.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        btAdd.setText("add User");
+        btAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btAddActionPerformed(evt);
             }
         });
 
@@ -65,30 +81,31 @@ public class NewUser extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
         jLabel4.setText("birthday: ");
 
-        jTextField1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        tfFirstname.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        tfLastname.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-
-        jTextField4.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfBirthday.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        tfBirthday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfBirthdayActionPerformed(evt);
             }
         });
-
-        jPasswordField1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jLabel5.setText("password: ");
 
         jLabel6.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
         jLabel6.setText("username: ");
 
-        jTextField5.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        tfUsername.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
 
         jLabel7.setText("_____________________________________________");
+
+        btClose.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        btClose.setText("close");
+        btClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCloseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,8 +114,7 @@ public class NewUser extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -106,19 +122,21 @@ public class NewUser extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField1)))
+                            .addComponent(tfLastname)
+                            .addComponent(tfFirstname)
+                            .addComponent(spWeight)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4))
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jTextField5))))
+                            .addComponent(tfBirthday)
+                            .addComponent(tfUsername)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -127,47 +145,63 @@ public class NewUser extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(8, 8, 8)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAdd)
+                    .addComponent(btClose))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
+        ok = true;
+        String username = this.tfUsername.getText();
+        String firstname = this.tfFirstname.getText();
+        String lastname = this.tfLastname.getText();
+        int weight = Integer.parseInt("" + this.spWeight.getValue());
+        LocalDate birthday = null;
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        birthday = LocalDate.parse(this.tfBirthday.getText(), formatter);
+
+        user = new User(username, firstname, lastname, weight, birthday);
+        ok = true;
+        this.dispose();
+
+
+    }//GEN-LAST:event_btAddActionPerformed
+
+    private void tfBirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBirthdayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfBirthdayActionPerformed
+
+    private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCloseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,19 +246,18 @@ public class NewUser extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btAdd;
+    private javax.swing.JButton btClose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JSpinner spWeight;
+    private javax.swing.JTextField tfBirthday;
+    private javax.swing.JTextField tfFirstname;
+    private javax.swing.JTextField tfLastname;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }
