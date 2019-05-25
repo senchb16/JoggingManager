@@ -8,8 +8,10 @@ package DataBase;
 import BL.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -44,6 +46,20 @@ public class DataBaseConnection {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public ArrayList<String> getUsers() throws SQLException{
+        ArrayList<String> usernames = new ArrayList<>();
+        String sql = "SELECT * FROM Users";
+        
+        Statement stat = conn.createStatement();
+        ResultSet rs = stat.executeQuery(sql);
+        
+        while(rs.next()){
+            String username = rs.getString("username");
+            usernames.add(username);
+        }
+        return usernames;
     }
     
         

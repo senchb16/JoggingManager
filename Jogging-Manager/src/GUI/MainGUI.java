@@ -7,6 +7,7 @@ package GUI;
 
 import DataBase.DataBaseConnection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class MainGUI extends javax.swing.JFrame {
     DataBaseConnection connection;
+    ArrayList<String> usernames = new ArrayList<>();
     /**
      * Creates new form MainGUI
      */
@@ -34,9 +36,22 @@ public class MainGUI extends javax.swing.JFrame {
                 
             }
         }
+        try {
+            usernames = connection.getUsers();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        updateComboBox();
+        
         
     }
-
+    
+    private void updateComboBox() {
+        this.jComboBox1.removeAllItems();
+        for (String username : usernames) {
+            this.jComboBox1.addItem(username);
+        }
+    }
     
    
 
@@ -165,7 +180,10 @@ public class MainGUI extends javax.swing.JFrame {
         user.setVisible(true);
         if(user.isOk()){
             connection.addUser(user.getUser());
+            usernames.add(user.getUser().getUsername());
+            updateComboBox();
         }
+        
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -216,4 +234,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    
 }
