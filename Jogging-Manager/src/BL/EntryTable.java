@@ -5,6 +5,7 @@
  */
 package BL;
 
+import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,20 +13,38 @@ import javax.swing.table.AbstractTableModel;
  * @author Christoph
  */
 public class EntryTable extends AbstractTableModel {
-
+    ArrayList<Entry> entries = new ArrayList<>();
+    private static String[] colNames = {"User","Date","Distance"};
+    
+    @Override
+    public String getColumnName(int i) {
+        return colNames[i];
+    }
+    
     @Override
     public int getRowCount() {
-        
+        return entries.size();
     }
 
     @Override
     public int getColumnCount() {
-        
+        return colNames.length;
     }
 
     @Override
-    public Object getValueAt(int i, int i1) {
-        
+    public Object getValueAt(int row, int col) {
+        Entry entry = entries.get(row);
+        switch(col){
+            case 0: return entry.getUsername();
+            case 1: return entry.getDistance();
+            case 2: return entry.getDate().toString();
+            default: return "????";
+        }
+    }
+    
+    public void add(Entry e){
+        entries.add(e);
+        fireTableDataChanged();
     }
     
 }

@@ -6,15 +6,33 @@
 package DataBase;
 
 import GUI.MainGUI;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Christoph
  */
 public class DataBaseConnection {
-     
-    public DataBaseConnection(String user, String password) {
+   
+    
+    private final Connection conn;
+    
+    public DataBaseConnection(String user, String password){
         
+       
+        
+    }
+
+    private void createTableUsers() {
+       
+    }
+
+    private void createTableEntries() {
+       
     }
     
         

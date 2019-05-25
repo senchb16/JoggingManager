@@ -6,18 +6,34 @@
 package GUI;
 
 import DataBase.DataBaseConnection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Christoph
  */
 public class MainGUI extends javax.swing.JFrame {
-    
+    DataBaseConnection connection;
     /**
      * Creates new form MainGUI
      */
     public MainGUI() {
         initComponents();
+        while(true){
+        String username = JOptionPane.showInputDialog(this, "Username for Database: ");
+        String password = JOptionPane.showInputDialog(this,"Password for Database: ");
+            try {
+                connection = new DataBaseConnection(username,password);
+                break;
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+                
+            }
+        }
+        
     }
 
     
