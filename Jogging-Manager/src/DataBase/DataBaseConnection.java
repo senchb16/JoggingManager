@@ -5,12 +5,11 @@
  */
 package DataBase;
 
-import GUI.MainGUI;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -18,25 +17,10 @@ import java.util.logging.Logger;
  */
 public class DataBaseConnection {
    
-    
     private final Connection conn;
     
-    public DataBaseConnection(String user, String password){
-        
-       
-        
+    public DataBaseConnection(String user, String password) throws SQLException{
+       conn = DriverManager.getConnection("jdbc:postgresql://localhost/pet-db", user, password);
     }
-
-    private void createTableUsers() {
-       
-    }
-
-    private void createTableEntries() {
-       
-    }
-    
-        
-        
-    
     
 }

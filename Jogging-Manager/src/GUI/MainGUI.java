@@ -27,9 +27,10 @@ public class MainGUI extends javax.swing.JFrame {
         String password = JOptionPane.showInputDialog(this,"Password for Database: ");
             try {
                 connection = new DataBaseConnection(username,password);
+                JOptionPane.showMessageDialog(this,"Connection succeeded");
                 break;
             } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(this,"Username or password incorrect!");
                 
             }
         }
