@@ -15,6 +15,7 @@ public class Entry {
     private LocalDate date;
     private int distance;
     private String username;
+    private double cal;
 
     public Entry(LocalDate date, int distance, String username) {
         this.date = date;
@@ -32,6 +33,22 @@ public class Entry {
 
     public String getUsername() {
         return username;
+    }
+    
+    public void calcCalories(int kg){
+        this.cal = distance * kg * 0.9;
+    }
+    
+    public double getCalories(){
+        return cal;
+    }
+    
+    public void setCalories(double cal){
+        this.cal = cal;
+    }
+    
+    public void setUsername(String username){
+        this.username = username;
     }
     
     

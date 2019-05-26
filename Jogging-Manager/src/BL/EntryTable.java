@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class EntryTable extends AbstractTableModel {
     ArrayList<Entry> entries = new ArrayList<>();
-    private static String[] colNames = {"User","Date","Distance"};
+    private static String[] colNames = {"User","Date","Distance","burned Calories"};
     
     @Override
     public String getColumnName(int i) {
@@ -38,12 +38,13 @@ public class EntryTable extends AbstractTableModel {
             case 0: return entry.getUsername();
             case 1: return entry.getDistance();
             case 2: return entry.getDate().toString();
+            case 3: return entry.getCalories();
             default: return "????";
         }
     }
     
-    public void add(Entry e){
-        entries.add(e);
+    public void show( ArrayList<Entry> entries){
+        this.entries = entries;
         fireTableDataChanged();
     }
     
