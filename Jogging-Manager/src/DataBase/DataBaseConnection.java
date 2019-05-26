@@ -31,8 +31,9 @@ public class DataBaseConnection {
 
     }
 
-    public void addUser(User u) {
+    public void addUser(User u){
 
+        
         try {
             String sql = "INSERT INTO Users VALUES('" + u.getUsername() + "',"
                     + "'" + u.getFirstname() + "',"
@@ -45,6 +46,7 @@ public class DataBaseConnection {
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
     }
 
@@ -62,7 +64,8 @@ public class DataBaseConnection {
         return usernames;
     }
 
-    public void addEntry(Entry e) {
+    public void addEntry(Entry e){
+        
         try {
             String sql = "INSERT INTO Entry VALUES('" + e.getUsername() + "',"
                     + "TO_DATE('" + e.getDate().toString() + "', 'yyyy-mm-dd'),"
@@ -74,6 +77,7 @@ public class DataBaseConnection {
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     public int getWeight(String username) {
@@ -106,6 +110,8 @@ public class DataBaseConnection {
                 e.setCalories(rs.getDouble("calories"));
                 entries.add(e);
             }
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }

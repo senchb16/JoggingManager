@@ -8,15 +8,16 @@ package GUI;
 import BL.Entry;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Christoph
  */
 public class NewEntry extends javax.swing.JDialog {
+
     Entry entry = null;
     boolean ok = false;
-    
 
     public Entry getEntry() {
         return entry;
@@ -25,6 +26,7 @@ public class NewEntry extends javax.swing.JDialog {
     public boolean isOk() {
         return ok;
     }
+
     /**
      * Creates new form NewEntry
      */
@@ -134,12 +136,19 @@ public class NewEntry extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
-       ok = true;
-       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-       LocalDate date = LocalDate.parse(this.tfDate.getText(), formatter);
-       int distance = Integer.parseInt(""+this.spDistance.getValue());
-       entry = new Entry(date,distance,null);
-       this.dispose();
+        try {
+            
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            LocalDate date = LocalDate.parse(this.tfDate.getText(), formatter);
+            int distance = Integer.parseInt("" + this.spDistance.getValue());
+            entry = new Entry(date, distance, null);
+            ok = true;
+            this.dispose();
+        } catch (Exception ex) {
+              JOptionPane.showMessageDialog(this,"Watch your format");
+        }
+
+       
     }//GEN-LAST:event_btAddActionPerformed
 
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed

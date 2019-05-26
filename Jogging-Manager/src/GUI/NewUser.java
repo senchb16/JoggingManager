@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -178,7 +179,8 @@ public class NewUser extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
-        ok = true;
+       try{
+        
         String username = this.tfUsername.getText();
         String firstname = this.tfFirstname.getText();
         String lastname = this.tfLastname.getText();
@@ -187,10 +189,16 @@ public class NewUser extends javax.swing.JDialog {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         birthday = LocalDate.parse(this.tfBirthday.getText(), formatter);
-
+        
+        
         user = new User(username, firstname, lastname, weight, birthday);
-        ok = true;
+        ok = true; 
         this.dispose();
+       }
+       catch(Exception ex){
+           JOptionPane.showMessageDialog(this,"Watch your format!");
+       }
+       
 
 
     }//GEN-LAST:event_btAddActionPerformed

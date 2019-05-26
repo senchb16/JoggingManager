@@ -43,7 +43,10 @@ public class EntryTable extends AbstractTableModel {
         }
     }
     
-    public void show( ArrayList<Entry> entries){
+    public void show( ArrayList<Entry> entries) throws Exception{
+        if(entries.isEmpty()){
+            throw new Exception("There are not entries to show yet!");
+        }
         this.entries = entries;
         fireTableDataChanged();
     }
