@@ -27,7 +27,7 @@ public class MainGUI extends javax.swing.JFrame {
      */
     public MainGUI() {
         initComponents();
-        this.jTable1.setModel(tablemodel);
+        this.tbOutput.setModel(tablemodel);
         while(true){
         String username = JOptionPane.showInputDialog(this, "Username for Database: ");
         String password = JOptionPane.showInputDialog(this,"Password for Database: ");
@@ -51,9 +51,9 @@ public class MainGUI extends javax.swing.JFrame {
     }
     
     private void updateComboBox() {
-        this.jComboBox1.removeAllItems();
+        this.cbUsername.removeAllItems();
         for (String username : usernames) {
-            this.jComboBox1.addItem(username);
+            this.cbUsername.addItem(username);
         }
     }
     
@@ -70,20 +70,20 @@ public class MainGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tbOutput = new javax.swing.JTable();
+        btShow = new javax.swing.JButton();
+        btAddUser = new javax.swing.JButton();
+        btAddEntry = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbUsername = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbOutput.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        tbOutput.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -94,29 +94,29 @@ public class MainGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbOutput);
 
-        jButton1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jButton1.setText("show");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btShow.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        btShow.setText("show");
+        btShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btShowActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jButton2.setText("add new User");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btAddUser.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        btAddUser.setText("add new User");
+        btAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btAddUserActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
-        jButton3.setText("add new Entry");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btAddEntry.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 13)); // NOI18N
+        btAddEntry.setText("add new Entry");
+        btAddEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btAddEntryActionPerformed(evt);
             }
         });
 
@@ -136,17 +136,17 @@ public class MainGUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(33, 33, 33)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(125, 125, 125))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btShow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btAddEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -161,13 +161,13 @@ public class MainGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btAddUser)
+                    .addComponent(btAddEntry))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btShow)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
@@ -175,16 +175,25 @@ public class MainGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * 
+     * Button: show;
+     * shows entries available for selected user
+     */
+    private void btShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btShowActionPerformed
         try {
-            tablemodel.show(connection.getEntries(""+this.jComboBox1.getSelectedItem()));
+            tablemodel.show(connection.getEntries(""+this.cbUsername.getSelectedItem()));
         } catch (Exception ex) {
            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btShowActionPerformed
+    /**
+     * 
+     * Button: AddUser;
+     * opens a dialogue, to add a new user
+     * after correct input, the user will be stored in the database
+     */
+    private void btAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddUserActionPerformed
         
         NewUser user = new NewUser(this,true);
         user.setVisible(true);
@@ -198,21 +207,26 @@ public class MainGUI extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btAddUserActionPerformed
+    /**
+     * 
+     * Button: AddEntry;
+     * opens a dialogue, to add a new entry
+     * after correct input, the entry will be stored in the database
+     */
+    private void btAddEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddEntryActionPerformed
        NewEntry entry = new NewEntry(this,true);
        entry.setVisible(true);
        
        if(entry.ok){
            
                Entry e = entry.getEntry();
-               e.setUsername((String) this.jComboBox1.getSelectedItem());
-               e.calcCalories(connection.getWeight((String) this.jComboBox1.getSelectedItem()));
+               e.setUsername((String) this.cbUsername.getSelectedItem());
+               e.calcCalories(connection.getWeight((String) this.cbUsername.getSelectedItem()));
                connection.addEntry(e);
            
        }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btAddEntryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,15 +264,15 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btAddEntry;
+    private javax.swing.JButton btAddUser;
+    private javax.swing.JButton btShow;
+    private javax.swing.JComboBox<String> cbUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbOutput;
     // End of variables declaration//GEN-END:variables
 
     

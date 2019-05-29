@@ -42,7 +42,7 @@ public class EntryTest {
     }
 
     /**
-     * Test of getDate method, of class Entry.
+     * Test of calcCalories method, of class Entry.
      */
     
     @Test

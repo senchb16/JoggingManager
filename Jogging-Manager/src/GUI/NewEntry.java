@@ -18,11 +18,19 @@ public class NewEntry extends javax.swing.JDialog {
 
     Entry entry = null;
     boolean ok = false;
-
+    
+    /**
+     * 
+     * @return entry - Entry
+     */
     public Entry getEntry() {
         return entry;
     }
-
+    
+    /**
+     * 
+     * @return ok - boolean
+     */
     public boolean isOk() {
         return ok;
     }
@@ -134,7 +142,13 @@ public class NewEntry extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * 
+     * @param evt 
+     * creates a new Entry object
+     * closes the dialogue afterwards
+     */
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
         try {
             
@@ -150,7 +164,12 @@ public class NewEntry extends javax.swing.JDialog {
 
        
     }//GEN-LAST:event_btAddActionPerformed
-
+    
+    /**
+     * 
+     * @param evt 
+     * closes the dialogue
+     */
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_btCloseActionPerformed

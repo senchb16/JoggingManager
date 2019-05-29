@@ -25,12 +25,23 @@ import javax.swing.JOptionPane;
 public class DataBaseConnection {
 
     private final Connection conn;
-
+    
+    /**
+     * 
+     * @param user String
+     * @param password String
+     * @throws SQLException 
+     */
+     
     public DataBaseConnection(String user, String password) throws SQLException {
         conn = DriverManager.getConnection("jdbc:postgresql://localhost/jogging-db", user, password);
 
     }
-
+    
+    /**
+     * 
+     * @param u User 
+     */
     public void addUser(User u){
 
         
@@ -49,7 +60,12 @@ public class DataBaseConnection {
         
 
     }
-
+    
+    /**
+     * 
+     * @return ArrayList
+     * @throws SQLException 
+     */
     public ArrayList<String> getUsers() throws SQLException {
         ArrayList<String> usernames = new ArrayList<>();
         String sql = "SELECT * FROM Users";
@@ -63,7 +79,11 @@ public class DataBaseConnection {
         }
         return usernames;
     }
-
+    
+    /**
+     * 
+     * @param e Entry
+     */
     public void addEntry(Entry e){
         
         try {
@@ -79,7 +99,12 @@ public class DataBaseConnection {
         }
         
     }
-
+    
+    /**
+     * 
+     * @param username String
+     * @return kg - int
+     */
     public int getWeight(String username) {
         int kg = 0;
         try {
@@ -96,7 +121,12 @@ public class DataBaseConnection {
         }
         return kg;
     }
-
+    
+    /**
+     * 
+     * @param username
+     * @return ArrayList
+     */
     public ArrayList<Entry> getEntries(String username) {
         ArrayList<Entry> entries = new ArrayList<>();
         try {

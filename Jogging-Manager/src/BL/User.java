@@ -17,7 +17,15 @@ public class User {
     private String lastname;
     private int weight;
     private LocalDate birthday;
-
+    
+    /**
+     * 
+     * @param username String
+     * @param firstname String
+     * @param lastname String
+     * @param weight int
+     * @param birthday LocalDate
+     */
     public User(String username, String firstname, String lastname, int weight, LocalDate birthday) {
         this.username = username;
         this.firstname = firstname;
@@ -25,23 +33,43 @@ public class User {
         this.weight = weight;
         this.birthday = birthday;
     }
-
+    
+    /**
+     * 
+     * @return username - String
+     */
     public String getUsername() {
         return username;
     }
-
+    
+    /**
+     * 
+     * @return firstname - String
+     */
     public String getFirstname() {
         return firstname;
     }
-
+    
+    /**
+     * 
+     * @return lastname - String
+     */
     public String getLastname() {
         return lastname;
     }
-
+    
+    /**
+     * 
+     * @return weight - int
+     */
     public int getWeight() {
         return weight;
     }
-
+    
+    /**
+     * 
+     * @return bitrthday - LocalDate
+     */
     public LocalDate getBirthday() {
         return birthday;
     }

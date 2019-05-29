@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/BL/User.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>78</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Christoph/Documents/NetBeansProjects/Jogging-Manager/src/GUI/MainGUI.java</file>
-            <file>file:/C:/Users/Christoph/Documents/NetBeansProjects/Jogging-Manager/src/DataBase/Connection.java</file>
-            <file>file:/C:/Users/Christoph/Documents/NetBeansProjects/Jogging-Manager/src/GUI/NewUser.java</file>
-            <file>file:/C:/Users/Christoph/Documents/NetBeansProjects/Jogging-Manager/src/GUI/NewEntry.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/GUI/NewUser.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/GUI/MainGUI.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/BL/Entry.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/BL/User.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/BL/EntryTable.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/test/BL/EntryTest.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/GUI/NewEntry.java</file>
+            <file>file:/C:/Users/Christoph/git-3bhif/JoggingManager/Jogging-Manager/src/DataBase/DataBaseConnection.java</file>
         </group>
     </open-files>
 </project-private>

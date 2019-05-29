@@ -20,11 +20,19 @@ public class NewUser extends javax.swing.JDialog {
 
     private User user = null;
     private boolean ok = false;
-
+    
+    /**
+     * 
+     * @return user - User
+     */
     public User getUser() {
         return user;
     }
-
+    
+    /**
+     * 
+     * @return ok - boolean
+     */
     public boolean isOk() {
         return ok;
     }
@@ -177,7 +185,13 @@ public class NewUser extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * 
+     * @param evt 
+     * creates a new User object
+     * closes the gui afterwards
+     */
     private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
        try{
         
@@ -204,9 +218,13 @@ public class NewUser extends javax.swing.JDialog {
     }//GEN-LAST:event_btAddActionPerformed
 
     private void tfBirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBirthdayActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfBirthdayActionPerformed
-
+    /**
+     * 
+     * @param evt
+     * closes the dialogue
+     */
     private void btCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_btCloseActionPerformed

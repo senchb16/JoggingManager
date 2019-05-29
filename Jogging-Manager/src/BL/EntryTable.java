@@ -14,23 +14,42 @@ import javax.swing.table.AbstractTableModel;
  */
 public class EntryTable extends AbstractTableModel {
     ArrayList<Entry> entries = new ArrayList<>();
-    private static String[] colNames = {"User","Date","Distance","burned Calories"};
+    private static String[] colNames = {"User","Distance [km]","Date","burned Calories"};
     
+    /**
+     * 
+     * @param i int
+     * @return colNames - String[]
+     */
     @Override
     public String getColumnName(int i) {
         return colNames[i];
     }
     
+    /**
+     * 
+     * @return entries.size() - int
+     */
     @Override
     public int getRowCount() {
         return entries.size();
     }
-
+    
+    /**
+     * 
+     * @return colnames.length - int
+     */
     @Override
     public int getColumnCount() {
         return colNames.length;
     }
-
+    
+    /**
+     * 
+     * @param row
+     * @param col
+     * @return Object
+     */
     @Override
     public Object getValueAt(int row, int col) {
         Entry entry = entries.get(row);
@@ -43,6 +62,11 @@ public class EntryTable extends AbstractTableModel {
         }
     }
     
+    /**
+     * 
+     * @param entries ArrayList
+     * @throws Exception 
+     */
     public void show( ArrayList<Entry> entries) throws Exception{
         if(entries.isEmpty()){
             throw new Exception("There are not entries to show yet!");
